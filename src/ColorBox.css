@@ -8,12 +8,45 @@
     margin-bottom: -3.5px;
 }
 
+.color-badge{
+    position: fixed;
+    left: 0;
+    top: 42%;
+    width: 100vw;
+    height: 15%;
+    background-color: rgba(255,255,255,0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transform: scale(0);
+    z-index: 10;
+}
+
+.color-badge.show{
+    transform: scale(1);
+    transition: transform 0.3s ease-in-out;
+    transition-delay: 0.3s;
+}
+
+.color-badge.hide{
+    transform: scale(0);
+    transition: transform 0.3s ease-in-out;
+}
+
+.color-badge h1{
+    color: #000;
+    font-weight: bold;
+}
+
+.color-badge label{
+    color: #000;
+}
+
 .overlay{
     width: 100%;
     height: 100%;
-    transform: scale(0.1);
-    opacity: 0;
-    transition: transform 0.5s ease-in-out;
+    transform: scale(0);
+    transition: transform 0.3s ease-in-out;
 }
 
 .overlay.show{
@@ -21,6 +54,13 @@
     z-index: 2;
     opacity: 1;
     position: absolute;
+}
+
+.overlay.hide{
+    z-index: 2;
+    transform: scale(0);
+    position: absolute;
+    transition-delay: 0.3s;
 }
 
 .copy-btn{
