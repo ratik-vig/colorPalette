@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import ColorBox from "./ColorBox";
 import '../css/Palette.css';
+import Navbar from "./Navbar";
 
 class Palette extends Component {
     constructor(props) {
@@ -19,12 +20,10 @@ class Palette extends Component {
         const {level} = this.state;
         return (
             <div className="palette">
-                {/*Navbar*/}
-                <div style={{display: 'flex', alignItems: 'centerg'}}>
-                    <label>{level}</label>
-                    <input type="range" min="100" max="900" step="100" value={level} onChange={this.handleChange}/>
-                </div>
-
+                <Navbar
+                    handleChange = {this.handleChange}
+                    level = {level}
+                />
                 <div className="palette-colors">
                     {colors[level].map(color => (
                         <ColorBox background={color.hex} name={color.name}/>
